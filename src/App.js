@@ -24,7 +24,8 @@ class App extends Component {
       return (
         <div key={index}>
           < img src = {
-            project.better_featured_image.media_details.sizes.thumbnail.source_url }
+            project.better_featured_image.media_details.sizes.medium.source_url
+            }
             alt={ project.better_featured_image.alt_text }
           />
         </div>
