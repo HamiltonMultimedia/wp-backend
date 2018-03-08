@@ -1,4 +1,6 @@
+// eslint-disable-next-line
 import React, { Component } from 'react';
+// eslint-disable-next-line
 import ReactDOM from 'react-dom';
 import { AppRegistry } from 'react-native';
 import './index.css';

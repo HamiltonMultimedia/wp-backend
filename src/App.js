@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import './App.css';
+import { View } from 'react-native';
+import Layout from './components/Layout';
+import './index.css';
 
 class App extends Component {
   constructor() {
@@ -23,21 +24,22 @@ class App extends Component {
   render() {
     let projects = this.state.projects.map((project, index) => {
       return (
-        <div key={index}>
-          <img
-            src={
-              project.better_featured_image.media_details.sizes.medium
-                .source_url
-            }
-            alt={project.better_featured_image.alt_text}
-          />
-        </div>
+        // <div key={index}>
+        //   <img
+        //     src={
+        //       project.better_featured_image.media_details.sizes.medium
+        //         .source_url
+        //     }
+        //     alt={project.better_featured_image.alt_text}
+        //   />
+        // </div>
+
+        <Layout title="HMM Chat App" />
       );
     });
     return (
-      <View style={{ flex: 1, backgroundColor: 'blue' }}>
-        <div className="App">
-          <h1 className="App-title" style={{ color: 'white'}} >Projects</h1>
+      <View style={{ flex:100 }}>
+        <div className="container">
           {projects}
         </div>
       </View>
