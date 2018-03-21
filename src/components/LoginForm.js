@@ -12,24 +12,22 @@ export default class LoginForm extends Component {
   }
 
   setUser = ({ user, isUser }) => {
-    console.log(user, isUser);
     if (isUser) {
-      this.setError('Username Already Taken');
+      this.setError('User name taken');
     } else {
+      this.setError('');
       this.props.setUser(user);
-      this.setError('')
     }
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
-
     const { socket } = this.props;
     const { nickname } = this.state;
     socket.emit(VERIFY_USER, nickname, this.setUser);
   };
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({ nickname: e.target.value });
   };
 
@@ -43,19 +41,18 @@ export default class LoginForm extends Component {
       <div className="login">
         <form onSubmit={this.handleSubmit} className="login-form">
           <label htmlFor="nickname">
-            <h2>Wanna Chat?</h2>
+            <h2>Got a nickname?</h2>
           </label>
           <input
-            ref={(input) => {
-              this.textInput = input
+            ref={input => {
+              this.textInput = input;
             }}
             type="text"
             id="nickname"
             value={nickname}
             onChange={this.handleChange}
-            placeholder={"Whats your name?"}
+            placeholder={'MYCoolUSername'}
           />
-
           <div className="error">{error ? error : null}</div>
         </form>
       </div>
